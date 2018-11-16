@@ -8,7 +8,7 @@ RUN npm run build
 
 #secondStage
 WORKDIR /usr/src/atsea
-COPY pom.xml
+COPY pom.xml .
 RUN mvn -B -f pom.xml -s /usr/share/maven/ref/setting-docker.xml dependency:resolve
 COPY . .
 RUN mvn -B -f /usr/share/maven/ref/setting-docker package -DskipTests
